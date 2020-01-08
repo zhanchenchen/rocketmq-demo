@@ -1,0 +1,7 @@
+server:
+  port: 7002
+#RocketMq专用配置
+rocketmq:
+  config:
+    # RocketMQ的请求地址
+    namesrvAddr: 123.206.180.111:9876
