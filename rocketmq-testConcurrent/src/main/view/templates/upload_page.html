@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf模板渲染</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <link rel="icon" href="/images/love.jpg"/>  <!--标签图标-->
+</head>
+<body>
+<form th:action="@{/uploadMultipart}" method="post" enctype="multipart/form-data">
+    姓名：<input type="text" name="name"/><br/>
+    照片：<input type="file" name="photo"/><br/>
+    照片：<input type="file" name="photo"/><br/>
+    照片：<input type="file" name="photo"/><br/>
+    <input type="submit" value="上传"/>
+</form>
+</body>
+</html>

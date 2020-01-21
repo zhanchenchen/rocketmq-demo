@@ -20,6 +20,7 @@ import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class Consumer {
@@ -35,7 +36,7 @@ public class Consumer {
     static Integer count = 0;
 
 
-    private final DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumer-02-test");
+    private final DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumer-01-test");
 
 
 

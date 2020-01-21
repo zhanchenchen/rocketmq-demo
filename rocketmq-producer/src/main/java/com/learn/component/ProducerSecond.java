@@ -1,25 +1,27 @@
 package com.learn.component;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.*;
+import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.client.producer.MQProducer;
+import org.apache.rocketmq.client.producer.SendCallback;
+import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
-import java.util.*;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Component
-public class Producer {
+public class ProducerSecond {
     private static final Logger LOGGER = LoggerFactory.getLogger(MQProducer.class);
 
     @Value("${rocketmq.config.namesrvAddr}")
@@ -29,7 +31,7 @@ public class Producer {
      * 声明并初始化一个producer
      * 需要一个producerGroup 名字作为构造方法的参数，这里为grampus-order
      */
-    private final DefaultMQProducer producer = new DefaultMQProducer("producer-test");
+    private final DefaultMQProducer producer = new DefaultMQProducer("producer-test-second");
 
     /**
      * 启动生产者
@@ -92,7 +94,7 @@ public class Producer {
 
             for (int i = 0; i < 1000; i++) {
 
-                byte[] messageBody = (data+"==="+i).getBytes(RemotingHelper.DEFAULT_CHARSET);
+                byte[] messageBody = (data+"===sec"+i).getBytes(RemotingHelper.DEFAULT_CHARSET);
 
                 Message mqMsg = new Message(topic, tags, keys, messageBody);
                 producer.send(mqMsg, new SendCallback() {
