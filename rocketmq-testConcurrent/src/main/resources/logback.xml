@@ -62,7 +62,7 @@
 		<append>true</append>
 	</appender>
 
-	<logger name="com.learn.dao" level="TRACE"/>	<!--sql打印-->
+	<logger name="com.learn.mapper" level="TRACE"/>	<!--sql打印-->
 
 	<!--控制日志输出的级别-->
 	<root level="info">

@@ -45,7 +45,7 @@ public class Consumer {
      *
      * @throws MQClientException
      */
-    @PostConstruct
+//    @PostConstruct
     public void start() {
         try {
             LOGGER.info("MQ：启动消费者");

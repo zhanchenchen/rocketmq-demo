@@ -62,7 +62,8 @@ spring:
           statement-create-after-log-enabled: false
           statement-parameter-set-log-enabled: false
           statement-prepare-after-log-enabled: false
-
+mybatis-plus:
+  mapper-locations: classpath*:com/learn/mapper/**/xml/*Mapper.xml
 #RocketMq专用配置
 rocketmq:
   config:
