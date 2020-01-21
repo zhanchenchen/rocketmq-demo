@@ -1,5 +1,7 @@
 package com.learn.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.learn.entity.Demo;
 import com.learn.service.IDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +22,12 @@ public class TestMySqlController {
     public boolean save(){
         Demo demo = new Demo(UUID.randomUUID().toString().replace("-",""),"小明","1");
         return demoService.save(demo);
+    }
+
+    @GetMapping("list")
+    public IPage<Demo> list(){
+        IPage<Demo> page = new Page<>(1,10);
+        IPage<Demo> pageList = demoService.page(page);
+        return pageList;
     }
 }
