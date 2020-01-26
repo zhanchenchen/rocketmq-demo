@@ -62,6 +62,19 @@ spring:
           statement-create-after-log-enabled: false
           statement-parameter-set-log-enabled: false
           statement-prepare-after-log-enabled: false
+  #redis 配置
+  redis:
+    database: 0
+    host: 123.206.180.111
+    lettuce:
+      pool:
+        max-active: 8   #最大连接数据库连接数,设 0 为没有限制
+        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+      shutdown-timeout: 100ms
+    password: 'vkepai@2019'
+    port: 6663
 mybatis-plus:
   mapper-locations: classpath*:com/learn/mapper/**/xml/*Mapper.xml
 #RocketMq专用配置
