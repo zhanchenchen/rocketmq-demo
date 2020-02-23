@@ -19,7 +19,8 @@
         <module>rocketmq-producer</module>
         <module>rocketmq-consumer01</module>
         <module>rocketmq-consumer02</module>
-        <module>rocketmq-testConcurrent</module>
+        <module>rocketmq-test</module>
+        <module>01rocketmq-new</module>
     </modules>
 
     <properties>
